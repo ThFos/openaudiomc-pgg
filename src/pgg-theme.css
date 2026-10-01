@@ -3,25 +3,27 @@
    Μόνο εμφάνιση. Δεν αγγίζει λογική σύνδεσης.
    ================================================================ */
 
+/* Το βασικό χρώμα του login. Ορίζεται σε όλα τα στοιχεία με !important,
+   ώστε να υπερισχύει ακόμα κι αν το app ή ο server βάλει δικό του χρώμα. */
+* {
+  --accent-color: #6b2dd8 !important;
+}
+
 :root {
-  /* Μεταβλητές του oa.css: το χρώμα του κυρίως UI γίνεται μωβ.
-     Το !important είναι για την περίπτωση που ο server στέλνει δικό του χρώμα. */
+  /* Μεταβλητές του oa.css για το κυρίως UI (μετά τη σύνδεση) */
   --primary-accent:     #6b2dd8 !important;
   --primary-accent-rgb: 107, 45, 216 !important;
   --body-font: 'Space Grotesk', sans-serif;
 
-  /* Δικές μας μεταβλητές (ίδιες με το pgglegacy.gr) */
-  --pgg-accent1:  #6b2dd8;
-  --pgg-accent2:  #521eb8;
-  --pgg-bg1:      #1a1921;
-  --pgg-bg2:      #121117;
-  --pgg-roundness: 0.75rem;
+  --pgg-accent1: #6b2dd8;
+  --pgg-accent2: #521eb8;
+  --pgg-bg1:     #1a1921;
+  --pgg-bg2:     #121117;
 
   /* Προαιρετικό: φόντο από το κύριο site αντί για το clientbg.jpg.
      Ξε-σχολίασέ το αν το θες. */
   /* --background-image: url("https://pgglegacy.gr/media/hero-bg.webp"); */
 
-  /* Toast ειδοποιήσεις (react-toastify) */
   --toastify-color-dark: var(--pgg-bg2);
   --toastify-color-progress-dark: var(--pgg-accent1);
 }
@@ -36,6 +38,12 @@ button, input, select, textarea {
   font-family: inherit;
 }
 
+/* Ο τίτλος του server έχει inline font roboto */
+h1[style*="roboto"] {
+  font-family: var(--body-font) !important;
+  letter-spacing: -0.5px;
+}
+
 ::selection {
   background: var(--pgg-accent1);
   color: #fff;
@@ -47,13 +55,47 @@ button, input, select, textarea {
   border-radius: 4px;
 }
 
-/* Scrollbar */
+/* ── Scrollbar ── */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--pgg-accent2) var(--pgg-bg2);
 }
 ::-webkit-scrollbar-thumb       { background: var(--pgg-accent2); border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--pgg-accent1); }
+
+/* ── Glow του λογότυπου (ήταν μπλε) ── */
+.image-glow {
+  filter: url(#glow) drop-shadow(0 0 5px rgba(107, 45, 216, 0.9));
+}
+
+/* ── Κάρτα login: σκούρο φόντο και neon pulse όπως στο pgglegacy.gr ── */
+@keyframes pggNeonPulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(107, 45, 216, 0.35), 0 0 18px rgba(107, 45, 216, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(107, 45, 216, 0.7), 0 0 32px rgba(107, 45, 216, 0.4);
+  }
+}
+
+.backdrop-blur-xl.rounded-2xl.border {
+  background-color: rgba(18, 17, 23, 0.82);
+  animation: pggNeonPulse 2.5s infinite ease-in-out;
+}
+
+/* ── Κουμπιά με το accent χρώμα: hover όπως στο κύριο site ── */
+button[style*="--accent-color"] {
+  transition: filter 0.3s ease, box-shadow 0.3s ease;
+}
+button[style*="--accent-color"]:hover {
+  filter: brightness(1.15);
+  box-shadow: 0 0 16px rgba(107, 45, 216, 0.55);
+}
+
+/* ── Κυρίως UI: κουμπιά ── */
+.content-pill:hover {
+  background: #521eb8 !important;
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
