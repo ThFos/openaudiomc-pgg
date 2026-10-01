@@ -89,7 +89,8 @@ export function RangeSetting({
       <div className="flex items-center mb-4">
         {icon ? (
           <div
-            className="w-10 h-10 mr-4 text-blue-500"
+            className="w-10 h-10 mr-4"
+            style={{ color: 'var(--primary-accent)' }}
             dangerouslySetInnerHTML={{ __html: icon }}
           />
         ) : null}
@@ -101,7 +102,10 @@ export function RangeSetting({
 
       <div className="mb-2 flex justify-between items-center">
         <span className="text-sm text-white font-medium">{min.toFixed(1)}</span>
-        <span className="text-sm text-white font-medium bg-blue-500 px-2 py-1 rounded-full">
+        <span
+          className="text-sm text-white font-medium px-2 py-1 rounded-full"
+          style={{ backgroundColor: 'var(--primary-accent)' }}
+        >
           {getDisplayLabel()}
         </span>
         <span className="text-sm text-white font-medium">{max.toFixed(1)}</span>
@@ -117,7 +121,7 @@ export function RangeSetting({
           onChange={handleChange}
           className="w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
           style={{
-            background: `linear-gradient(to right, #3B82F6 0%, #3B82F6 ${percentage}%, rgba(255, 255, 255, 0.1) ${percentage}%, rgba(255, 255, 255, 0.1) 100%)`,
+            background: `linear-gradient(to right, var(--primary-accent) 0%, var(--primary-accent) ${percentage}%, rgba(255, 255, 255, 0.1) ${percentage}%, rgba(255, 255, 255, 0.1) 100%)`,
           }}
         />
       </div>
