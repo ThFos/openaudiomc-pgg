@@ -3,7 +3,6 @@ import { Globe } from 'lucide-react';
 import PropTypes from 'prop-types';
 import { compareProdVersions } from '../../client/util/versioning';
 import { getGlobalState } from '../../state/store';
-import { VERSION } from '../../build';
 
 export class BaseSegmentedPage extends React.Component {
   // prop types
@@ -92,28 +91,18 @@ export class BaseSegmentedPage extends React.Component {
         {!this.props.noFooter ? (
           <div className="relative w-full p-4 mt-auto flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 bg-gray-900 border-t border-gray-800 z-10">
             <div className="mb-2 sm:mb-0 text-center sm:text-left">
-              &copy; OpenAudioMc 2016-2025. All Rights Reserved.
-            </div>
-            <div className="flex flex-col sm:flex-row items-center sm:space-x-6 space-y-2 sm:space-y-0">
-              {this.props.showVersion ? (
-                <a
-                  href="https://openaudiomc.net/docs/client_major_changelog"
-                  className="text-gray-500 hover:text-white flex items-center transition-colors duration-200"
-                >
-                  <span className="text-sm font-mono">
-                    Version
-                    {' '}
-                    {VERSION.revision}
-                  </span>
-                  <span className={`ml-2 ${this.state.versionDiff.color}`}>
-                    (
-                    {this.state.versionDiff.text}
-                    )
-                  </span>
-                </a>
-              ) : null}
+              &copy; PGG Legacy &middot; Powered by
+              {' '}
               <a
                 href="https://openaudiomc.net/"
+                className="text-gray-500 hover:text-white transition-colors duration-200"
+              >
+                OpenAudioMc
+              </a>
+            </div>
+            <div className="flex flex-col sm:flex-row items-center sm:space-x-6 space-y-2 sm:space-y-0">
+              <a
+                href="https://pgglegacy.gr"
                 className="text-gray-500 hover:text-white flex items-center transition-colors duration-200"
               >
                 <Globe size={14} className="mr-1" />
