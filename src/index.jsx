@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { reportVital } from './client/util/vitalreporter';
+import './pgg-theme.css';
 
 // polyfill for url canParse
 if (!URL.canParse) {
@@ -37,4 +38,3 @@ window.onerror = function handle(errorMessage, fileName, lineNumber, columnNumbe
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-import './pgg-theme.css';
