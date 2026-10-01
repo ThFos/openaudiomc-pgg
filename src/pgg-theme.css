@@ -1,16 +1,10 @@
-/* ================================================================
-   PGG LEGACY THEME για το OpenAudioMc client
-   Μόνο εμφάνιση. Δεν αγγίζει λογική σύνδεσης.
-   ================================================================ */
+/* PGG LEGACY THEME για το OpenAudioMc client. Μόνο εμφάνιση. */
 
-/* Το βασικό χρώμα του login. Ορίζεται σε όλα τα στοιχεία με !important,
-   ώστε να υπερισχύει ακόμα κι αν το app ή ο server βάλει δικό του χρώμα. */
 * {
   --accent-color: #6b2dd8 !important;
 }
 
 :root {
-  /* Μεταβλητές του oa.css για το κυρίως UI (μετά τη σύνδεση) */
   --primary-accent:     #6b2dd8 !important;
   --primary-accent-rgb: 107, 45, 216 !important;
   --body-font: 'Space Grotesk', sans-serif;
@@ -20,8 +14,7 @@
   --pgg-bg1:     #1a1921;
   --pgg-bg2:     #121117;
 
-  /* Προαιρετικό: φόντο από το κύριο site αντί για το clientbg.jpg.
-     Ξε-σχολίασέ το αν το θες. */
+  /* Προαιρετικό φόντο από το κύριο site */
   /* --background-image: url("https://pgglegacy.gr/media/hero-bg.webp"); */
 
   --toastify-color-dark: var(--pgg-bg2);
@@ -34,20 +27,20 @@ html, body {
   font-family: var(--body-font);
 }
 
-button, input, select, textarea {
-  font-family: inherit;
-}
+button, input, select, textarea { font-family: inherit; }
 
-/* Ο τίτλος του server έχει inline font roboto */
 h1[style*="roboto"] {
   font-family: var(--body-font) !important;
   letter-spacing: -0.5px;
 }
 
-::selection {
-  background: var(--pgg-accent1);
-  color: #fff;
+/* Το serverDisplayName είναι άδειο (null στα settings). Το λογότυπο λέει ήδη PGG Legacy,
+   οπότε κρύβουμε τον άδειο τίτλο. Αν ο server στείλει όνομα, θα εμφανιστεί κανονικά. */
+h1[style*="roboto"]:empty {
+  display: none;
 }
+
+::selection { background: var(--pgg-accent1); color: #fff; }
 
 :focus-visible {
   outline: 2px solid var(--pgg-accent1);
@@ -55,7 +48,6 @@ h1[style*="roboto"] {
   border-radius: 4px;
 }
 
-/* ── Scrollbar ── */
 * {
   scrollbar-width: thin;
   scrollbar-color: var(--pgg-accent2) var(--pgg-bg2);
@@ -63,19 +55,22 @@ h1[style*="roboto"] {
 ::-webkit-scrollbar-thumb       { background: var(--pgg-accent2); border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--pgg-accent1); }
 
-/* ── Glow του λογότυπου (ήταν μπλε) ── */
 .image-glow {
   filter: url(#glow) drop-shadow(0 0 5px rgba(107, 45, 216, 0.9));
 }
 
-/* ── Κάρτα login: σκούρο φόντο και neon pulse όπως στο pgglegacy.gr ── */
+/* Λογότυπο στη login σελίδα (αριστερή στήλη).
+   Το αρχικό κουτί ήταν 192x192, πολύ μικρό για πλατύ λογότυπο. */
+.lg\:w-5\/12 img[alt="logo"] {
+  width: min(22rem, 80vw);
+  height: auto;
+  max-height: 14rem;
+  filter: drop-shadow(0 0 18px rgba(107, 45, 216, 0.45));
+}
+
 @keyframes pggNeonPulse {
-  0%, 100% {
-    box-shadow: 0 0 8px rgba(107, 45, 216, 0.35), 0 0 18px rgba(107, 45, 216, 0.15);
-  }
-  50% {
-    box-shadow: 0 0 18px rgba(107, 45, 216, 0.7), 0 0 32px rgba(107, 45, 216, 0.4);
-  }
+  0%, 100% { box-shadow: 0 0 8px rgba(107,45,216,0.35), 0 0 18px rgba(107,45,216,0.15); }
+  50%      { box-shadow: 0 0 18px rgba(107,45,216,0.7), 0 0 32px rgba(107,45,216,0.4); }
 }
 
 .backdrop-blur-xl.rounded-2xl.border {
@@ -83,7 +78,6 @@ h1[style*="roboto"] {
   animation: pggNeonPulse 2.5s infinite ease-in-out;
 }
 
-/* ── Κουμπιά με το accent χρώμα: hover όπως στο κύριο site ── */
 button[style*="--accent-color"] {
   transition: filter 0.3s ease, box-shadow 0.3s ease;
 }
@@ -92,10 +86,7 @@ button[style*="--accent-color"]:hover {
   box-shadow: 0 0 16px rgba(107, 45, 216, 0.55);
 }
 
-/* ── Κυρίως UI: κουμπιά ── */
-.content-pill:hover {
-  background: #521eb8 !important;
-}
+.content-pill:hover { background: #521eb8 !important; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
