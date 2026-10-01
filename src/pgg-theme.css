@@ -13,6 +13,7 @@
   --pgg-accent2: #521eb8;
   --pgg-bg1:     #1a1921;
   --pgg-bg2:     #121117;
+  --pgg-border:  rgba(255, 255, 255, 0.05);
 
   /* Προαιρετικό φόντο από το κύριο site */
   /* --background-image: url("https://pgglegacy.gr/media/hero-bg.webp"); */
@@ -76,6 +77,12 @@ h1[style*="roboto"]:empty {
 .backdrop-blur-xl.rounded-2xl.border {
   background-color: rgba(18, 17, 23, 0.82);
   animation: pggNeonPulse 2.5s infinite ease-in-out;
+}
+
+/* Footer του BaseSegmentedPage: από γκρι-μπλε (bg-gray-900) στο χρώμα του κυρίως site */
+.relative.w-full.mt-auto.bg-gray-900.border-t {
+  background-color: var(--pgg-bg2);
+  border-top-color: var(--pgg-border);
 }
 
 button[style*="--accent-color"] {
