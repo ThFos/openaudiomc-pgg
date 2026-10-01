@@ -1,13 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
-
+/* Η Karla αφαιρέθηκε (έφερνε γραμματοσειρά από Google). Χρησιμοποιούμε το Space Grotesk του PGG. */
 .font-family-karla {
-    font-family: karla;
+    font-family: var(--body-font, 'Space Grotesk', sans-serif);
 }
 
 /* loader */
 .loader {
     border-color: rgba(0, 0, 0, 0);
-    border-top-color: #002edc;
+    border-top-color: #6b2dd8;
     -webkit-animation: spinner 1.5s linear infinite;
     animation: spinner 1.5s linear infinite;
 }
