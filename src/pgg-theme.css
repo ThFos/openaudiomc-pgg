@@ -22,6 +22,21 @@
   --toastify-color-progress-dark: var(--pgg-accent1);
 }
 
+/* Μεταβλητές του oa.css (UI μετά τη σύνδεση) στα χρώματα του κυρίως site.
+   html:root αντί για :root, ώστε να υπερισχύει του oa.css. */
+html:root {
+  --common-border-radius: 0.75rem;
+  --narbarBg:        var(--pgg-bg2);
+  --theme-bg-color:  rgba(18, 17, 23, 0.5);
+  --border-color:    rgba(255, 255, 255, 0.08);
+  --popup-bg:        var(--pgg-bg2);
+  --dropdown-bg:     var(--pgg-bg1);
+  --dropdown-hover:  #25232e;
+  --search-bg:       var(--pgg-bg2);
+  --overlay-bg:      rgba(18, 17, 23, 0.3);
+  --hover-menu-bg:   rgba(255, 255, 255, 0.05);
+}
+
 html, body {
   background-color: var(--pgg-bg1);
   color: #fff;
