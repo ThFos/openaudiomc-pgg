@@ -1,4 +1,3 @@
-import MillionLint from '@million/lint';
 /* eslint-disable import/no-extraneous-dependencies */
 
 import { defineConfig } from 'vite';
@@ -17,21 +16,25 @@ Array.prototype.some = function someMatchUtil(fun) {
   }
   return false;
 };
-const millionPlugins = [svgr({
-  svgrOptions: {
-    ref: true,
+
+const millionPlugins = [
+  svgr({
+    svgrOptions: {
+      ref: true,
+    },
+  }),
+  {
+    name: 'singleHMR',
+    handleHotUpdate({ modules }) {
+      return modules;
+    },
   },
-}), {
-  name: 'singleHMR',
-  handleHotUpdate({
-    modules,
-  }) {
-    return modules;
-  },
-}, react({
-  include: '**/*.jsx',
-}), eslint()];
-millionPlugins.unshift(MillionLint.vite());
+  react({
+    include: '**/*.jsx',
+  }),
+  eslint(),
+];
+
 export default defineConfig({
   plugins: millionPlugins,
   server: {
