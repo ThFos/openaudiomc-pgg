@@ -200,6 +200,78 @@ div.fixed.bottom-0.right-0.rounded-tl-2xl {
   border-color: rgba(107, 45, 216, 0.7);
 }
 
+/* ===== Έλεγχοι και ρυθμίσεις (sliders, select, κανάλια φωνής) ===== */
+
+/* --- Audio: slider έντασης (AudioVolume) --- */
+.absolute.inset-x-0.h-2.bg-gray-700.rounded-full {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.absolute.w-4.h-4.bg-white.rounded-full.shadow-md {
+  box-shadow: 0 0 10px rgba(107, 45, 216, 0.9);
+}
+
+/* --- Settings: λίστα γλώσσας (select) --- */
+select {
+  color-scheme: dark;
+}
+select option {
+  background-color: var(--pgg-bg1);
+  color: #fff;
+}
+select:focus {
+  border-color: rgba(107, 45, 216, 0.7) !important;
+  box-shadow: 0 0 0 1px rgba(107, 45, 216, 0.4);
+}
+
+/* --- Voice: γρήγορες ρυθμίσεις (VoiceQuickSettings) --- */
+/* Κουτάκι εικονιδίου έντασης */
+.bg-blue-500.bg-opacity-20.rounded-lg {
+  background-color: rgba(107, 45, 216, 0.2);
+  border-color: rgba(107, 45, 216, 0.45);
+}
+.bg-blue-500.bg-opacity-20.rounded-lg svg {
+  color: #b79cf5;
+}
+/* Πλήρωση του slider (μπλε → μωβ) */
+.bg-gradient-to-r.from-blue-500.to-purple-500 {
+  background-image: linear-gradient(to right, #521eb8, #6b2dd8);
+  box-shadow: 0 0 10px rgba(107, 45, 216, 0.5);
+}
+/* Κύκλος του slider */
+.w-5.h-5.bg-white.rounded-full.border-2.border-blue-500 {
+  border-color: var(--pgg-accent1);
+  box-shadow: 0 0 10px rgba(107, 45, 216, 0.8);
+}
+
+/* --- Voice: εικονίδιο «δεν υπάρχει κανείς» (σκληρό χρώμα #ff6b6b στον κώδικα) --- */
+svg[style*="255, 107, 107"],
+svg[style*="ff6b6b"] {
+  color: #8f5ae6 !important;
+}
+
+/* --- Voice: κανάλια (VoiceChannels). Το accentColor είναι null, άρα δεν υπάρχει inline χρώμα --- */
+/* Κουμπί Join (όχι το κόκκινο Leave, όχι τα απενεργοποιημένα) */
+button.w-full.py-2.rounded.text-sm.font-medium.mt-auto:not(.bg-red-500):not(:disabled) {
+  background-color: var(--pgg-accent1);
+  color: #fff;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+button.w-full.py-2.rounded.text-sm.font-medium.mt-auto:not(.bg-red-500):not(:disabled):hover {
+  background-color: var(--pgg-accent2);
+  box-shadow: 0 0 14px rgba(107, 45, 216, 0.5);
+}
+/* Ενεργό κανάλι: κάρτα, λωρίδα αριστερά και badge «Active» */
+.bg-black\/80.ring-1 {
+  --tw-ring-color: rgba(107, 45, 216, 0.6);
+}
+.absolute.left-0.top-0.h-full.w-1.rounded-l {
+  background-color: var(--pgg-accent1);
+  box-shadow: 0 0 10px rgba(107, 45, 216, 0.8);
+}
+.absolute.-top-1.left-1\/2.rounded.text-xs.font-medium.text-white {
+  background-color: var(--pgg-accent1);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
