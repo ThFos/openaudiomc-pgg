@@ -399,6 +399,25 @@ button.bg-red-500.w-1\/3:hover {
   border: 1px solid var(--pgg-border);
 }
 
+/* ===== Κάρτα παίκτη (VoicePeerRow) ===== */
+
+/* Το voicepeerbox.css δίνει ουδέτερο μαύρο 30%. Εδώ: σκούρο PGG, λεπτό περίγραμμα (box-shadow,
+   ώστε να μη μετακινηθεί η διάταξη) και μωβ glow στο hover. */
+.voice-card-modern {
+  background-color: rgba(18, 17, 23, 0.6);
+  border-radius: var(--common-border-radius);
+  box-shadow: 0 0 0 1px var(--pgg-border);
+  transition: box-shadow 0.2s ease;
+}
+.voice-card-modern:hover {
+  box-shadow: 0 0 0 1px rgba(107, 45, 216, 0.5), 0 0 14px rgba(107, 45, 216, 0.25);
+}
+
+/* Μήνυμα «Waiting for stream…» (ήταν ανοιχτό indigo) */
+p.text-xs.pt-1.text-indigo-300 {
+  color: #b79cf5;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
