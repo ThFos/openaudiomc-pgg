@@ -372,6 +372,33 @@ button.bg-red-500.w-1\/3:hover {
   background-color: #dc2626;
 }
 
+/* ===== Κουμπιά Voice (mic, deafen, PiP) και λίστα παικτών ===== */
+
+/* Κουμπιά του oabutton.css: λεπτό περίγραμμα. Τα .button-off/.button-on
+   (κόκκινο/πράσινο, ενδείξεις κατάστασης) έχουν μεγαλύτερη προτεραιότητα και μένουν ως έχουν. */
+.oa-button-modern {
+  box-shadow: 0 0 0 1px var(--pgg-border), 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+/* Hover: μωβ του PGG αντί για μίξη με μπλε-γκρι (#336699) */
+.oa-button-modern:hover:not(.button-off):not(.button-on) {
+  background-color: var(--pgg-accent2);
+  box-shadow: 0 0 14px rgba(107, 45, 216, 0.5), 0 0 0 1px rgba(107, 45, 216, 0.6);
+}
+
+/* VoicePeerBox, οθόνη «peers hidden»: πράσινο gradient και περίγραμμα → μωβ */
+.bg-gradient-to-br.from-green-900\/20.to-black {
+  background-image: linear-gradient(to bottom right, rgba(107, 45, 216, 0.15), #000);
+}
+.bg-black\/40.backdrop-blur-md.rounded-lg.border {
+  border-color: rgba(107, 45, 216, 0.3);
+}
+
+/* VoicePeerBox: κουτάκι «X talking / Y total» */
+.bg-zinc-900\/80.rounded-md.px-3.py-2 {
+  background-color: var(--pgg-bg1);
+  border: 1px solid var(--pgg-border);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
