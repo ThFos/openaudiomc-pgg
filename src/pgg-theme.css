@@ -148,12 +148,57 @@ nav button.group > div.absolute {
   box-shadow: 0 0 10px rgba(107, 45, 216, 0.8) !important;
 }
 
-/* Κουτάκι Version/copyright κάτω δεξιά */
+/* Κουτάκι copyright κάτω δεξιά */
 div.fixed.bottom-0.right-0.rounded-tl-2xl {
   background: rgba(18, 17, 23, 0.9) !important;
   border-color: var(--pgg-border) !important;
 }
 #notice:hover { color: #fff; }
+
+/* ===== Σελίδες μετά τη σύνδεση (Audio / Settings / Voice) =====
+   Οι selectors βασίζονται στα classes των AudioPage.jsx, SettingsPage.jsx, VoicePage.jsx. */
+
+/* --- Audio: κύρια κάρτα --- */
+.bg-gray-900.rounded-2xl.overflow-hidden {
+  background-color: var(--pgg-bg1);
+  border: 1px solid var(--pgg-border);
+  animation: pggNeonPulse 2.5s infinite ease-in-out;
+}
+
+/* Διαχωριστικές γραμμές μέσα στις κάρτες */
+.h-px.bg-gray-800 {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* --- Settings: κάρτες --- */
+.backdrop-blur-xl.rounded-3xl.border {
+  background-color: rgba(18, 17, 23, 0.7);
+  border-color: var(--pgg-border);
+}
+.backdrop-blur-xl.rounded-3xl.border:hover {
+  border-color: rgba(107, 45, 216, 0.5);
+  box-shadow: 0 0 20px rgba(107, 45, 216, 0.3);
+}
+
+/* --- Settings: γραμμή κάτω από τους τίτλους ενοτήτων (αντί για μπλε/ροζ) --- */
+.bg-gradient-to-r.from-blue-400.via-purple-500.to-pink-500 {
+  background-image: linear-gradient(to right, #6b2dd8, #521eb8);
+  box-shadow: 0 0 10px rgba(107, 45, 216, 0.6);
+}
+
+/* --- Voice: πάνελ --- */
+.bg-black\/40.backdrop-blur-sm.rounded-xl {
+  background-color: rgba(18, 17, 23, 0.7);
+  box-shadow: 0 0 0 1px var(--pgg-border), 0 0 18px rgba(107, 45, 216, 0.12);
+}
+
+/* --- Voice: κάρτες ενεργειών (το inline borderColor είναι null) --- */
+.bg-black\/30.border.rounded-lg {
+  border-color: rgba(107, 45, 216, 0.35);
+}
+.bg-black\/30.border.rounded-lg:hover {
+  border-color: rgba(107, 45, 216, 0.7);
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
