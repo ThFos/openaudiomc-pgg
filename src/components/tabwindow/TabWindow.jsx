@@ -8,7 +8,6 @@ import { msg } from '../../client/OpenAudioAppContainer';
 import ServerConnectionWarning from '../connectionwarning/ServerConnectionWarning';
 import UserAvatar from '../avatar/UserAvatar';
 import { reportVital } from '../../client/util/vitalreporter';
-import { VERSION } from '../../build';
 
 export const setTab = (tab) => {
   setGlobalState({
@@ -217,25 +216,22 @@ class TabWindow extends Component {
               : 'rgba(0,0,0,0.4)',
           }}
         >
-          <span
-            className="text-xs text-aqua-800 hover:text-white transition-all duration-300 font-medium tracking-wide pr-3"
-          >
-            Version
+          <span className="text-xs text-gray-400 font-medium tracking-wide">
+            &copy; PGG Legacy &middot; Powered by
             {' '}
-            {VERSION.revision}
+            <a
+              className="text-xs text-gray-400 hover:text-white transition-all duration-300 font-medium tracking-wide"
+              id="notice"
+              href="https://openaudiomc.net/"
+              style={this.props.accentColor ? {
+                '--hover-color': this.props.accentColor,
+              } : {}}
+              onMouseOver={(e) => this.props.accentColor && (e.target.style.color = this.props.accentColor)}
+              onMouseOut={(e) => this.props.accentColor && (e.target.style.color = '')}
+            >
+              OpenAudioMc
+            </a>
           </span>
-          <a
-            className="text-xs text-gray-400 hover:text-white transition-all duration-300 font-medium tracking-wide"
-            id="notice"
-            href="https://openaudiomc.net/"
-            style={this.props.accentColor ? {
-              '--hover-color': this.props.accentColor,
-            } : {}}
-            onMouseOver={(e) => this.props.accentColor && (e.target.style.color = this.props.accentColor)}
-            onMouseOut={(e) => this.props.accentColor && (e.target.style.color = '')}
-          >
-            &copy; OpenAudioMc 2016-2026. All Rights Reserved.
-          </a>
         </div>
       </div>
     );
