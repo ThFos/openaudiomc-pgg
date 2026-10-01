@@ -4,60 +4,56 @@
    ================================================================ */
 
 :root {
-  --accent1:        #6b2dd8;
-  --accent2:        #521eb8;
-  --accent2-transp: rgba(82, 30, 184, 0.33);
-  --bg1:            #1a1921;
-  --bg2:            #121117;
-  --text-muted:     rgba(255, 255, 255, 0.7);
-  --border-subtle:  rgba(255, 255, 255, 0.05);
-  --roundness:      0.75rem;
-  --transition-std: 0.3s ease;
-  color-scheme: dark;
+  /* Μεταβλητές του oa.css: το χρώμα του κυρίως UI γίνεται μωβ.
+     Το !important είναι για την περίπτωση που ο server στέλνει δικό του χρώμα. */
+  --primary-accent:     #6b2dd8 !important;
+  --primary-accent-rgb: 107, 45, 216 !important;
+  --body-font: 'Space Grotesk', sans-serif;
+
+  /* Δικές μας μεταβλητές (ίδιες με το pgglegacy.gr) */
+  --pgg-accent1:  #6b2dd8;
+  --pgg-accent2:  #521eb8;
+  --pgg-bg1:      #1a1921;
+  --pgg-bg2:      #121117;
+  --pgg-roundness: 0.75rem;
+
+  /* Προαιρετικό: φόντο από το κύριο site αντί για το clientbg.jpg.
+     Ξε-σχολίασέ το αν το θες. */
+  /* --background-image: url("https://pgglegacy.gr/media/hero-bg.webp"); */
+
+  /* Toast ειδοποιήσεις (react-toastify) */
+  --toastify-color-dark: var(--pgg-bg2);
+  --toastify-color-progress-dark: var(--pgg-accent1);
 }
 
 html, body {
-  background-color: var(--bg1);
+  background-color: var(--pgg-bg1);
   color: #fff;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--body-font);
 }
 
-/* Το Roboto του @fontsource αντικαθίσταται παντού μέσα στο app */
-#root,
-#root *,
 button, input, select, textarea {
-  font-family: 'Space Grotesk', sans-serif;
-}
-#root code, #root pre, #root kbd {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: inherit;
 }
 
 ::selection {
-  background: var(--accent1);
+  background: var(--pgg-accent1);
   color: #fff;
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent1);
+  outline: 2px solid var(--pgg-accent1);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* Scrollbar σε στυλ dark */
+/* Scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--accent2) var(--bg2);
+  scrollbar-color: var(--pgg-accent2) var(--pgg-bg2);
 }
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-track { background: var(--bg2); }
-::-webkit-scrollbar-thumb { background: var(--accent2); border-radius: 6px; }
-::-webkit-scrollbar-thumb:hover { background: var(--accent1); }
-
-/* Toast ειδοποιήσεις (react-toastify) στο χρώμα του site */
-:root {
-  --toastify-color-dark: var(--bg2);
-  --toastify-color-progress-dark: var(--accent1);
-}
+::-webkit-scrollbar-thumb       { background: var(--pgg-accent2); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--pgg-accent1); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
