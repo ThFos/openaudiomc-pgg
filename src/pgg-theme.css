@@ -224,14 +224,6 @@ select:focus {
 }
 
 /* --- Voice: γρήγορες ρυθμίσεις (VoiceQuickSettings) --- */
-/* Κουτάκι εικονιδίου έντασης */
-.bg-blue-500.bg-opacity-20.rounded-lg {
-  background-color: rgba(107, 45, 216, 0.2);
-  border-color: rgba(107, 45, 216, 0.45);
-}
-.bg-blue-500.bg-opacity-20.rounded-lg svg {
-  color: #b79cf5;
-}
 /* Πλήρωση του slider (μπλε → μωβ) */
 .bg-gradient-to-r.from-blue-500.to-purple-500 {
   background-image: linear-gradient(to right, #521eb8, #6b2dd8);
@@ -270,6 +262,114 @@ button.w-full.py-2.rounded.text-sm.font-medium.mt-auto:not(.bg-red-500):not(:dis
 }
 .absolute.-top-1.left-1\/2.rounded.text-xs.font-medium.text-white {
   background-color: var(--pgg-accent1);
+}
+
+/* ===== Voice Settings, onboarding, SoundCloud, modal ===== */
+
+/* --- Εικονίδια σε κουτάκια (GeneralVoiceSettings + VoiceQuickSettings):
+       πράσινο, κίτρινο, μπλε και μωβ Tailwind → μωβ του PGG.
+       Το ".border" αποκλείει το πράσινο «Mic active» και το κίτρινο/amber warning. --- */
+.p-2.bg-purple-500.bg-opacity-20.rounded-lg.border,
+.p-2.bg-green-500.bg-opacity-20.rounded-lg.border,
+.p-2.bg-blue-500.bg-opacity-20.rounded-lg.border,
+.p-2.bg-yellow-500.bg-opacity-20.rounded-lg.border {
+  background-color: rgba(107, 45, 216, 0.2);
+  border-color: rgba(107, 45, 216, 0.45);
+}
+.p-2.bg-purple-500.bg-opacity-20.rounded-lg.border svg,
+.p-2.bg-green-500.bg-opacity-20.rounded-lg.border svg,
+.p-2.bg-blue-500.bg-opacity-20.rounded-lg.border svg,
+.p-2.bg-yellow-500.bg-opacity-20.rounded-lg.border svg {
+  color: #b79cf5;
+}
+
+/* --- Διακόπτες (toggles) στο Voice Settings --- */
+/* Κλειστός */
+input.peer:not(:checked) ~ div.bg-gray-700 {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+/* Ανοιχτός: ίδιο μωβ για όλους (πριν: μπλε / κίτρινο / μωβ) */
+input.peer:checked ~ div.peer-checked\:bg-blue-600,
+input.peer:checked ~ div.peer-checked\:bg-yellow-600,
+input.peer:checked ~ div.peer-checked\:bg-purple-600 {
+  background-color: var(--pgg-accent1);
+  filter: drop-shadow(0 0 6px rgba(107, 45, 216, 0.6));
+}
+/* Δαχτυλίδι focus: μωβ αντί για ανοιχτό μπλε/κίτρινο */
+input.peer:focus ~ div.relative.rounded-full {
+  --tw-ring-color: rgba(107, 45, 216, 0.35);
+}
+
+/* --- Επιλογή μικροφώνου (select) --- */
+select.bg-gray-700 {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Μπάρα έντασης μικροφώνου --- */
+.relative.h-8.bg-gray-700.rounded-lg.overflow-hidden {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.h-full.transition-all.duration-100.bg-blue-500 {
+  background-color: var(--pgg-accent1);
+}
+
+/* --- Audio tab: VcOnboarding (κουτί προειδοποίησης + κουμπί Join) --- */
+.bg-gray-800.rounded-lg.p-3 {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--pgg-border);
+}
+button.w-full.py-3.px-4.rounded-lg.bg-green-600 {
+  background-color: var(--pgg-accent1);
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+button.w-full.py-3.px-4.rounded-lg.bg-green-600:hover {
+  background-color: var(--pgg-accent2);
+  box-shadow: 0 0 14px rgba(107, 45, 216, 0.5);
+}
+
+/* --- SoundCloud: κουτάκι «Now playing» --- */
+a.flex.items-center.gap-3.bg-gray-900.rounded-xl.p-3 {
+  background-color: var(--pgg-bg1);
+  border: 1px solid var(--pgg-border);
+}
+a.flex.items-center.gap-3.bg-gray-900.rounded-xl.p-3:hover {
+  background-color: #25232e;
+  border-color: rgba(107, 45, 216, 0.5);
+  box-shadow: 0 0 14px rgba(107, 45, 216, 0.3);
+}
+
+/* --- Modal (InputModal) --- */
+.relative.top-20.mx-auto.p-5.border.w-96.rounded-md.bg-gray-700 {
+  background-color: var(--pgg-bg1);
+  border-color: rgba(107, 45, 216, 0.6);
+  border-radius: var(--common-border-radius);
+  box-shadow: 0 0 24px rgba(107, 45, 216, 0.35);
+}
+h1.text-indigo-200 {
+  color: #fff;
+}
+textarea.bg-gray-100 {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  border: 1px solid var(--pgg-border);
+  border-radius: var(--common-border-radius);
+  padding: 0.5rem;
+}
+textarea.bg-gray-100::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+/* Κουμπί OK: μωβ αντί για πράσινο */
+button.bg-green-500.w-1\/3 {
+  background-color: var(--pgg-accent1);
+}
+button.bg-green-500.w-1\/3:hover {
+  background-color: var(--pgg-accent2);
+  box-shadow: 0 0 14px rgba(107, 45, 216, 0.5);
+}
+/* Κουμπί CLOSE: ο κώδικας το κάνει πράσινο στο hover, το κρατάμε κόκκινο */
+button.bg-red-500.w-1\/3:hover {
+  background-color: #dc2626;
 }
 
 @media (prefers-reduced-motion: reduce) {
