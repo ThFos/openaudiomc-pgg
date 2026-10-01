@@ -75,8 +75,7 @@ h1[style*="roboto"]:empty {
   filter: url(#glow) drop-shadow(0 0 5px rgba(107, 45, 216, 0.9));
 }
 
-/* Λογότυπο στη login σελίδα (αριστερή στήλη).
-   Το αρχικό κουτί ήταν 192x192, πολύ μικρό για πλατύ λογότυπο. */
+/* Λογότυπο στη login σελίδα (αριστερή στήλη). */
 .lg\:w-5\/12 img[alt="logo"] {
   width: min(22rem, 80vw);
   height: auto;
@@ -109,6 +108,52 @@ button[style*="--accent-color"]:hover {
 }
 
 .content-pill:hover { background: #521eb8 !important; }
+
+/* ===== UI μετά τη σύνδεση: TabWindow (πλαϊνή μπάρα + footer) =====
+   Το accentColor των settings είναι null, οπότε το TabWindow βάζει γκρι/λευκά
+   inline styles. Γι' αυτό χρειάζεται !important σε μερικά σημεία. */
+
+/* Πλαϊνή μπάρα */
+nav.fixed.left-0.top-0 {
+  background-color: rgba(18, 17, 23, 0.88);
+  border-right-color: var(--pgg-border);
+  box-shadow: 0 0 24px rgba(107, 45, 216, 0.15);
+}
+
+/* Κουμπί ανοίγματος/κλεισίματος της μπάρας */
+nav button[aria-label="Toggle sidebar"]:hover {
+  border-color: rgba(107, 45, 216, 0.6);
+  box-shadow: 0 0 14px rgba(107, 45, 216, 0.4);
+}
+
+/* Ανενεργά tabs: μωβ περίγραμμα στο hover */
+nav button.group:not([style]):hover {
+  border-color: rgba(107, 45, 216, 0.35);
+}
+
+/* Ενεργό tab (έχει attribute style μόνο όταν είναι ενεργό) */
+nav button.group[style] {
+  background: linear-gradient(135deg, rgba(107, 45, 216, 0.28), rgba(107, 45, 216, 0.1)) !important;
+  border-color: rgba(107, 45, 216, 0.6) !important;
+  box-shadow: 0 0 18px rgba(107, 45, 216, 0.35) !important;
+}
+nav button.group[style] > div:first-child {
+  background: rgba(107, 45, 216, 0.18) !important;
+  border-color: rgba(107, 45, 216, 0.55) !important;
+}
+
+/* Μπάρα-δείκτης αριστερά στο ενεργό tab */
+nav button.group > div.absolute {
+  background-color: var(--pgg-accent1) !important;
+  box-shadow: 0 0 10px rgba(107, 45, 216, 0.8) !important;
+}
+
+/* Κουτάκι Version/copyright κάτω δεξιά */
+div.fixed.bottom-0.right-0.rounded-tl-2xl {
+  background: rgba(18, 17, 23, 0.9) !important;
+  border-color: var(--pgg-border) !important;
+}
+#notice:hover { color: #fff; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
