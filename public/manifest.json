@@ -1,9 +1,0 @@
-{
-  "short_name": "PGG Voice",
-  "name": "PGG Legacy Voice Chat",
-  "icons": [],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#1a1921",
-  "background_color": "#1a1921"
-}
